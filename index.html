@@ -29,8 +29,9 @@
         a:hover { color: var(--highlight); }
 
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
+            /* Changed to a light, warm orange gradient */
+            background: linear-gradient(135deg, #ffecd2 0%, #ffb347 100%);
+            color: var(--primary); /* Changed to dark text for contrast against light orange */
             padding: 60px 0 50px;
         }
 
@@ -48,21 +49,24 @@
             height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid rgba(255,255,255,0.3);
+            border: 4px solid rgba(255, 255, 255, 0.7); /* Adjusted for the new background */
             flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Added a subtle shadow to make it pop */
         }
 
         .header-text h1 { font-size: 2.4em; font-weight: 700; margin-bottom: 6px; }
-        .header-text .subtitle { font-size: 1.15em; opacity: 0.9; margin-bottom: 14px; }
+        .header-text .subtitle { font-size: 1.15em; opacity: 0.85; margin-bottom: 14px; color: var(--text); }
 
         .header-links a {
-            color: rgba(255,255,255,0.85);
+            color: var(--accent); /* Changed from white to dark blue */
             margin-right: 20px;
             font-size: 0.95em;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
+            border-bottom: 1px solid rgba(15, 52, 96, 0.3);
             padding-bottom: 1px;
+            display: inline-block;
+            margin-bottom: 8px; /* Added spacing for mobile wrapping */
         }
-        .header-links a:hover { color: #fff; border-color: #fff; }
+        .header-links a:hover { color: var(--highlight); border-color: var(--highlight); }
 
         nav {
             background: var(--card-bg);
