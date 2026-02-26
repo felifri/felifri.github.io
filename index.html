@@ -28,7 +28,6 @@
         a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
         a:hover { color: var(--highlight); }
 
-        /* Header */
         .header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: white;
@@ -53,17 +52,8 @@
             flex-shrink: 0;
         }
 
-        .header-text h1 {
-            font-size: 2.4em;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .header-text .subtitle {
-            font-size: 1.15em;
-            opacity: 0.9;
-            margin-bottom: 14px;
-        }
+        .header-text h1 { font-size: 2.4em; font-weight: 700; margin-bottom: 6px; }
+        .header-text .subtitle { font-size: 1.15em; opacity: 0.9; margin-bottom: 14px; }
 
         .header-links a {
             color: rgba(255,255,255,0.85);
@@ -72,10 +62,8 @@
             border-bottom: 1px solid rgba(255,255,255,0.3);
             padding-bottom: 1px;
         }
-
         .header-links a:hover { color: #fff; border-color: #fff; }
 
-        /* Nav */
         nav {
             background: var(--card-bg);
             border-bottom: 1px solid var(--border);
@@ -102,24 +90,11 @@
             border-bottom: 3px solid transparent;
             transition: all 0.2s;
         }
+        nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-        nav a:hover, nav a.active {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-        }
+        main { max-width: 960px; margin: 0 auto; padding: 0 30px; }
 
-        /* Main */
-        main {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        section {
-            padding: 45px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
+        section { padding: 45px 0; border-bottom: 1px solid var(--border); }
         section:last-child { border-bottom: none; }
 
         h2 {
@@ -131,15 +106,8 @@
             display: inline-block;
         }
 
-        h3 {
-            font-size: 1.1em;
-            color: var(--accent);
-            margin: 18px 0 6px;
-        }
-
         p { margin-bottom: 12px; }
 
-        /* News */
         .news-item {
             background: var(--card-bg);
             border-left: 4px solid var(--highlight);
@@ -148,57 +116,28 @@
             border-radius: 0 6px 6px 0;
             box-shadow: 0 1px 3px rgba(0,0,0,0.04);
         }
+        .news-item .date { font-size: 0.85em; color: var(--text-light); font-weight: 600; }
 
-        .news-item .date {
-            font-size: 0.85em;
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 28px;
-        }
-
+        .timeline { position: relative; padding-left: 28px; }
         .timeline::before {
             content: '';
             position: absolute;
-            left: 6px;
-            top: 8px;
-            bottom: 8px;
+            left: 6px; top: 8px; bottom: 8px;
             width: 2px;
             background: var(--border);
         }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 18px;
-        }
-
+        .timeline-item { position: relative; margin-bottom: 18px; }
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -25px;
-            top: 8px;
-            width: 10px;
-            height: 10px;
+            left: -25px; top: 8px;
+            width: 10px; height: 10px;
             border-radius: 50%;
             background: var(--accent);
             border: 2px solid var(--bg);
         }
+        .timeline-item .year { font-weight: 700; color: var(--accent); font-size: 0.9em; }
 
-        .timeline-item .year {
-            font-weight: 700;
-            color: var(--accent);
-            font-size: 0.9em;
-        }
-
-        .timeline-item .desc {
-            color: var(--text);
-        }
-
-        /* Publications */
         .pub {
             background: var(--card-bg);
             padding: 18px 22px;
@@ -207,32 +146,11 @@
             box-shadow: 0 1px 4px rgba(0,0,0,0.05);
             border: 1px solid var(--border);
         }
-
-        .pub-title {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.02em;
-            margin-bottom: 4px;
-        }
-
-        .pub-authors {
-            font-size: 0.9em;
-            color: var(--text-light);
-            margin-bottom: 4px;
-        }
-
+        .pub-title { font-weight: 600; color: var(--primary); font-size: 1.02em; margin-bottom: 4px; }
+        .pub-authors { font-size: 0.9em; color: var(--text-light); margin-bottom: 4px; }
         .pub-authors strong { color: var(--text); }
-
-        .pub-venue {
-            font-size: 0.88em;
-            color: var(--highlight);
-            font-weight: 600;
-        }
-
-        .pub-links {
-            margin-top: 6px;
-        }
-
+        .pub-venue { font-size: 0.88em; color: var(--highlight); font-weight: 600; }
+        .pub-links { margin-top: 6px; }
         .pub-links a {
             display: inline-block;
             font-size: 0.82em;
@@ -243,32 +161,13 @@
             color: var(--accent);
             font-weight: 500;
         }
-
         .pub-links a:hover { background: var(--accent); color: #fff; }
 
-        /* Teaching */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 10px 14px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        th {
-            background: var(--primary);
-            color: white;
-            font-weight: 600;
-            font-size: 0.9em;
-        }
-
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+        th { background: var(--primary); color: white; font-weight: 600; font-size: 0.9em; }
         tr:hover { background: rgba(15, 52, 96, 0.03); }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 30px;
@@ -278,12 +177,8 @@
             margin-top: 20px;
         }
 
-        /* Responsive */
         @media (max-width: 700px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
+            .header-content { flex-direction: column; text-align: center; }
             .header-text h1 { font-size: 1.8em; }
             nav ul { flex-wrap: wrap; justify-content: center; }
             nav a { padding: 10px 12px; font-size: 0.88em; }
@@ -292,7 +187,6 @@
 </head>
 <body>
 
-<!-- Header -->
 <header class="header">
     <div class="header-content">
         <img src="profile_picture.jpg" alt="Felix Friedrich" class="profile-pic">
@@ -303,13 +197,12 @@
                 <a href="mailto:felixfriedrich@meta.com">&#9993; Email</a>
                 <a href="https://scholar.google.com/citations?user=RfM9ud0AAAAJ" target="_blank">&#127891; Google Scholar</a>
                 <a href="https://github.com/felifri" target="_blank">&#128187; GitHub</a>
-                <a href="https://www.linkedin.com/in/felix-friedrich-2874a7192/" target="_blank">&#128101; LinkedIn</a>
+                <a href="https://www.linkedin.com/in/felix-friedrich-425587281/" target="_blank">&#128101; LinkedIn</a>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Navigation -->
 <nav>
     <ul>
         <li><a href="#news" class="active">News</a></li>
@@ -322,7 +215,6 @@
 
 <main>
 
-<!-- News -->
 <section id="news">
     <h2>News</h2>
     <div class="news-item">
@@ -331,36 +223,23 @@
     </div>
     <div class="news-item">
         <span class="date">2024</span>
-        <p>Check out our latest news articles about our work at <a href="https://www.technologyreview.com/" target="_blank">MIT Technology Review</a> and <a href="https://www.tu-darmstadt.de/" target="_blank">TU Darmstadt</a>. Try our HuggingFace demos: <a href="https://huggingface.co/spaces/AIML-TUDA/FairDiffusion" target="_blank">Fair Diffusion Explorer</a> and <a href="https://huggingface.co/spaces/AIML-TUDA/SEGA" target="_blank">SEGA Demo</a>.</p>
-    </div>
-    <div class="news-item">
-        <span class="date">2024</span>
-        <p>Our paper <em>&ldquo;M-ALERT: LLMs Lost in Translation&rdquo;</em> on cross-linguistic safety inconsistencies in large language models is now available on <a href="https://arxiv.org/abs/2412.15035" target="_blank">arXiv</a>.</p>
-    </div>
-    <div class="news-item">
-        <span class="date">2024</span>
-        <p>Our paper <em>&ldquo;Multilingual Text-to-Image Generation Magnifies Gender Stereotypes&rdquo;</em> has been published. Read it on <a href="https://arxiv.org/abs/2401.16092" target="_blank">arXiv</a>.</p>
+        <p>Check out the demos of our work on HuggingFace: <a href="https://huggingface.co/spaces/AIML-TUDA/FairDiffusion" target="_blank">Fair Diffusion Explorer</a> and <a href="https://huggingface.co/spaces/AIML-TUDA/SEGA" target="_blank">SEGA Demo</a>.</p>
     </div>
 </section>
 
-<!-- About -->
 <section id="about">
     <h2>About Me</h2>
     <p>
-        My research interests are centered around artificial intelligence (AI) and how we can make AI systems socially acceptable. I focus on two key directions:
+        My research interests lie in <strong>inference and post-training techniques for generative models</strong>. I focus on <strong>multimodal generation models</strong>, in particular diffusion and flow-based architectures, and work on improving their capabilities and controllability.
     </p>
     <p>
-        First, I work on <strong>incorporating the human in the loop</strong>. Inspiration comes from cognitive science, since the exploration and consideration of human behavior are inevitable and possibly the best motivation to improve current models. ChatGPT is just one example where human interaction boosted performance &mdash; demonstrating massive improvement through human interaction and the impact on current societies.
-    </p>
-    <p>
-        Second, I address the fact that <strong>current models are heavily biased</strong>. Trained on unfiltered web data, they risk reflecting or amplifying societal biases. I am interested in better understanding the learned representations in these models and in how to debias them in arbitrary directions, paving the way for fairer AI. To this end, I want to make use of human capabilities to incorporate knowledge outside of the rigid range of purely data-driven approaches.
+        Beyond generation quality, I am deeply interested in the <strong>safety of multimodal models</strong>. As these systems become more powerful and widely deployed, ensuring they behave responsibly and do not produce harmful or biased outputs is critical. My work addresses both the advancement and the responsible deployment of generative AI.
     </p>
     <p style="margin-top: 16px; color: var(--text-light); font-size: 0.95em;">
-        <strong>Research Topics:</strong> Multimodal AI &middot; Generative AI &middot; AI Alignment &middot; AI Safety &middot; Fairness &amp; Bias
+        <strong>Research Topics:</strong> Multimodal Generation &middot; Diffusion &amp; Flow Models &middot; Inference &amp; Post-Training &middot; AI Safety &middot; Generative AI
     </p>
 </section>
 
-<!-- Timeline -->
 <section id="timeline">
     <h2>Timeline</h2>
     <div class="timeline">
@@ -403,26 +282,35 @@
     </div>
 </section>
 
-<!-- Publications -->
 <section id="publications">
     <h2>Selected Publications</h2>
-    <p style="margin-bottom: 20px; color: var(--text-light);">For a full list, see my <a href="https://scholar.google.com/citations?user=RfM9ud0AAAAJ" target="_blank">Google Scholar</a> profile (1,060+ citations).</p>
+    <p style="margin-bottom: 20px; color: var(--text-light);">For a full list, see my <a href="https://scholar.google.com/citations?user=RfM9ud0AAAAJ" target="_blank">Google Scholar</a> profile.</p>
 
     <div class="pub">
-        <div class="pub-title">LLMs Lost in Translation: M-ALERT Uncovers Cross-Linguistic Safety Inconsistencies</div>
-        <div class="pub-authors"><strong>Felix Friedrich</strong>, Simone Tedeschi, Patrick Schramowski, Manuel Brack, Roberto Navigli, Huu Nguyen, Bo Li</div>
-        <div class="pub-venue">arXiv, 2024</div>
+        <div class="pub-title">Multilingual Text-to-Image Generation Magnifies Gender Stereotypes and Prompt Engineering May Not Help You</div>
+        <div class="pub-authors"><strong>Felix Friedrich</strong>, Katharina H&auml;mmerl, Patrick Schramowski, Manuel Brack, Jind&#345;ich Libovick&yacute;, Kristian Kersting, Alexander Fraser</div>
+        <div class="pub-venue">ACL 2025</div>
         <div class="pub-links">
-            <a href="https://arxiv.org/abs/2412.15035" target="_blank">Paper</a>
+            <a href="https://arxiv.org/abs/2401.16092" target="_blank">arXiv</a>
+            <a href="https://aclanthology.org/2025.acl-long.966/" target="_blank">ACL Anthology</a>
         </div>
     </div>
 
     <div class="pub">
-        <div class="pub-title">Multilingual Text-to-Image Generation Magnifies Gender Stereotypes and Prompt Engineering May Not Help You</div>
-        <div class="pub-authors"><strong>Felix Friedrich</strong>, Katharina H&auml;mmerl, Patrick Schramowski, Manuel Brack, Kristian Kersting</div>
+        <div class="pub-title">LLMs Lost in Translation: M-ALERT Uncovers Cross-Linguistic Safety Inconsistencies</div>
+        <div class="pub-authors"><strong>Felix Friedrich</strong>, Simone Tedeschi, Patrick Schramowski, Manuel Brack, Roberto Navigli, Huu Nguyen, Bo Li, Kristian Kersting</div>
         <div class="pub-venue">arXiv, 2024</div>
         <div class="pub-links">
-            <a href="https://arxiv.org/abs/2401.16092" target="_blank">Paper</a>
+            <a href="https://arxiv.org/abs/2412.15035" target="_blank">arXiv</a>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div class="pub-title">LlavaGuard: VLM-based Safeguards for Vision Dataset Curation and Safety Assessment</div>
+        <div class="pub-authors">Lukas Helff, <strong>Felix Friedrich</strong>*, Manuel Brack*, Kristian Kersting, Patrick Schramowski &nbsp;(*equal contribution)</div>
+        <div class="pub-venue">arXiv, 2024</div>
+        <div class="pub-links">
+            <a href="https://arxiv.org/abs/2406.05113" target="_blank">arXiv</a>
         </div>
     </div>
 
@@ -431,7 +319,7 @@
         <div class="pub-authors">Simone Tedeschi, <strong>Felix Friedrich</strong>, Patrick Schramowski, Kristian Kersting, Roberto Navigli, Huu Nguyen, Bo Li</div>
         <div class="pub-venue">arXiv, 2024</div>
         <div class="pub-links">
-            <a href="https://arxiv.org/abs/2404.08676" target="_blank">Paper</a>
+            <a href="https://arxiv.org/abs/2404.08676" target="_blank">arXiv</a>
         </div>
     </div>
 
@@ -441,39 +329,42 @@
         <div class="pub-venue">AI and Ethics (Springer), 2024</div>
         <div class="pub-links">
             <a href="https://link.springer.com/article/10.1007/s43681-024-00531-5" target="_blank">Paper</a>
-        </div>
-    </div>
-
-    <div class="pub">
-        <div class="pub-title">Fair Diffusion: Instructing Text-to-Image Generation Models on Fairness</div>
-        <div class="pub-authors"><strong>Felix Friedrich</strong>, Manuel Brack, Lukas Struppek, Dominik Hintersdorf, Patrick Schramowski, Sasha Luccioni, Kristian Kersting</div>
-        <div class="pub-venue">arXiv, 2023</div>
-        <div class="pub-links">
-            <a href="https://arxiv.org/abs/2302.10893" target="_blank">Paper</a>
+            <a href="https://arxiv.org/abs/2302.10893" target="_blank">arXiv</a>
             <a href="https://huggingface.co/spaces/AIML-TUDA/FairDiffusion" target="_blank">Demo</a>
         </div>
     </div>
 
     <div class="pub">
-        <div class="pub-title">Safe Latent Diffusion: Mitigating Inappropriate Degeneration in Diffusion Models</div>
-        <div class="pub-authors">Patrick Schramowski, Manuel Brack, Björn Deiseroth, <strong>Felix Friedrich</strong>, Kristian Kersting</div>
-        <div class="pub-venue">CVPR, 2023</div>
+        <div class="pub-title">LEDITS++: Limitless Image Editing using Text-to-Image Models</div>
+        <div class="pub-authors">Manuel Brack, <strong>Felix Friedrich</strong>, Katharina Kornmeier, Linoy Tsaban, Patrick Schramowski, Kristian Kersting, Apolin&aacute;rio Passos</div>
+        <div class="pub-venue">CVPR, 2024</div>
         <div class="pub-links">
-            <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Schramowski_Safe_Latent_Diffusion_Mitigating_Inappropriate_Degeneration_in_Diffusion_Models_CVPR_2023_paper.pdf" target="_blank">Paper</a>
+            <a href="https://arxiv.org/abs/2311.16711" target="_blank">arXiv</a>
+            <a href="https://openaccess.thecvf.com/content/CVPR2024/html/Brack_LEDITS_Limitless_Image_Editing_using_Text-to-Image_Models_CVPR_2024_paper.html" target="_blank">CVPR</a>
         </div>
     </div>
 
     <div class="pub">
-        <div class="pub-title">A Fair Encoding of Generative Models: A Typology of Bias in Vision and Language Research</div>
-        <div class="pub-authors"><strong>Felix Friedrich</strong>, Manuel Brack, Patrick Schramowski, Lukas Struppek, Dominik Hintersdorf, Kristian Kersting</div>
-        <div class="pub-venue">arXiv, 2022</div>
+        <div class="pub-title">SEGA: Instructing Text-to-Image Models using Semantic Guidance</div>
+        <div class="pub-authors">Manuel Brack, <strong>Felix Friedrich</strong>, Dominik Hintersdorf, Lukas Struppek, Patrick Schramowski, Kristian Kersting</div>
+        <div class="pub-venue">arXiv, 2023</div>
         <div class="pub-links">
-            <a href="https://arxiv.org/abs/2203.03668" target="_blank">Paper</a>
+            <a href="https://arxiv.org/abs/2301.12247" target="_blank">arXiv</a>
+            <a href="https://huggingface.co/spaces/AIML-TUDA/SEGA" target="_blank">Demo</a>
         </div>
     </div>
+
+    <div class="pub">
+        <div class="pub-title">A Typology for Exploring the Mitigation of Shortcut Behavior</div>
+        <div class="pub-authors"><strong>Felix Friedrich</strong>, Wolfgang Stammer, Patrick Schramowski, Kristian Kersting</div>
+        <div class="pub-venue">arXiv, 2022</div>
+        <div class="pub-links">
+            <a href="https://arxiv.org/abs/2203.03668" target="_blank">arXiv</a>
+        </div>
+    </div>
+
 </section>
 
-<!-- Teaching -->
 <section id="teaching">
     <h2>Teaching</h2>
     <p style="margin-bottom: 14px;">Supervised courses at TU Darmstadt with <a href="https://ml-research.github.io/people/kkersting/" target="_blank">Prof. Dr. Kristian Kersting</a>:</p>
@@ -498,21 +389,16 @@
     &copy; 2025 Felix Friedrich &middot; Hosted on <a href="https://github.com/felifri/felifri.github.io">GitHub Pages</a>
 </footer>
 
-<!-- Smooth scrolling & active nav -->
 <script>
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
             const target = document.querySelector(link.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
             link.classList.add('active');
         });
     });
-
-    // Update active nav on scroll
     window.addEventListener('scroll', () => {
         const sections = document.querySelectorAll('section');
         let current = '';
