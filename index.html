@@ -3,40 +3,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>Felix Friedrich</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f5f5f5;
-            color: #333;
+        :root {
+            --primary: #1a1a2e;
+            --accent: #0f3460;
+            --highlight: #e94560;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --border: #dfe6e9;
         }
-        h1 { color: #2c3e50; }
-        a { color: #3498db; }
-        .section { margin-bottom: 30px; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+        }
+
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--highlight); }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 60px 0 50px;
+        }
+
+        .header-content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.3);
+            flex-shrink: 0;
+        }
+
+        .header-text h1 {
+            font-size: 2.4em;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .header-text .subtitle {
+            font-size: 1.15em;
+            opacity: 0.9;
+            margin-bottom: 14px;
+        }
+
+        .header-links a {
+            color: rgba(255,255,255,0.85);
+            margin-right: 20px;
+            font-size: 0.95em;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 1px;
+        }
+
+        .header-links a:hover { color: #fff; border-color: #fff; }
+
+        /* Nav */
+        nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 30px;
+            list-style: none;
+            display: flex;
+            gap: 8px;
+        }
+
+        nav a {
+            display: block;
+            padding: 14px 18px;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.93em;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Main */
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        section {
+            padding: 45px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child { border-bottom: none; }
+
+        h2 {
+            font-size: 1.6em;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--highlight);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.1em;
+            color: var(--accent);
+            margin: 18px 0 6px;
+        }
+
+        p { margin-bottom: 12px; }
+
+        /* News */
+        .news-item {
+            background: var(--card-bg);
+            border-left: 4px solid var(--highlight);
+            padding: 14px 20px;
+            margin-bottom: 12px;
+            border-radius: 0 6px 6px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .news-item .date {
+            font-size: 0.85em;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--bg);
+        }
+
+        .timeline-item .year {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.9em;
+        }
+
+        .timeline-item .desc {
+            color: var(--text);
+        }
+
+        /* Publications */
+        .pub {
+            background: var(--card-bg);
+            padding: 18px 22px;
+            margin-bottom: 14px;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.02em;
+            margin-bottom: 4px;
+        }
+
+        .pub-authors {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .pub-authors strong { color: var(--text); }
+
+        .pub-venue {
+            font-size: 0.88em;
+            color: var(--highlight);
+            font-weight: 600;
+        }
+
+        .pub-links {
+            margin-top: 6px;
+        }
+
+        .pub-links a {
+            display: inline-block;
+            font-size: 0.82em;
+            padding: 3px 10px;
+            background: var(--bg);
+            border-radius: 4px;
+            margin-right: 6px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .pub-links a:hover { background: var(--accent); color: #fff; }
+
+        /* Teaching */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        tr:hover { background: rgba(15, 52, 96, 0.03); }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+            font-size: 0.85em;
+            border-top: 1px solid var(--border);
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-text h1 { font-size: 1.8em; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            nav a { padding: 10px 12px; font-size: 0.88em; }
+        }
     </style>
 </head>
 <body>
-    <div class="section">
-        <h1>Hello, I'm [Your Name]! 👋</h1>
-        <p>Welcome to my personal website.</p>
+
+<!-- Header -->
+<header class="header">
+    <div class="header-content">
+        <img src="profile_picture.jpg" alt="Felix Friedrich" class="profile-pic">
+        <div class="header-text">
+            <h1>Felix Friedrich</h1>
+            <div class="subtitle">Postdoctoral Researcher &middot; Meta FAIR, Montreal, Canada</div>
+            <div class="header-links">
+                <a href="mailto:felixfriedrich@meta.com">&#9993; Email</a>
+                <a href="https://scholar.google.com/citations?user=RfM9ud0AAAAJ" target="_blank">&#127891; Google Scholar</a>
+                <a href="https://github.com/felifri" target="_blank">&#128187; GitHub</a>
+                <a href="https://www.linkedin.com/in/felix-friedrich-2874a7192/" target="_blank">&#128101; LinkedIn</a>
+            </div>
+        </div>
     </div>
-    <div class="section">
-        <h2>About Me</h2>
-        <p>Write something about yourself here.</p>
+</header>
+
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li><a href="#news" class="active">News</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+    </ul>
+</nav>
+
+<main>
+
+<!-- News -->
+<section id="news">
+    <h2>News</h2>
+    <div class="news-item">
+        <span class="date">2025</span>
+        <p>I have joined <strong>Meta FAIR</strong> as a postdoc in Montreal, Canada, working on multimodal AI models in the group of <a href="https://scholar.google.com/citations?user=kaUrszMAAAAJ" target="_blank">Adriana Romero Soriano</a> and <a href="https://scholar.google.com/citations?user=1Sm5sEoAAAAJ" target="_blank">Michal Drozdzal</a>.</p>
     </div>
-    <div class="section">
-        <h2>Projects</h2>
-        <ul>
-            <li><a href="#">Project 1</a> — Description</li>
-            <li><a href="#">Project 2</a> — Description</li>
-        </ul>
+    <div class="news-item">
+        <span class="date">2024</span>
+        <p>Check out our latest news articles about our work at <a href="https://www.technologyreview.com/" target="_blank">MIT Technology Review</a> and <a href="https://www.tu-darmstadt.de/" target="_blank">TU Darmstadt</a>. Try our HuggingFace demos: <a href="https://huggingface.co/spaces/AIML-TUDA/FairDiffusion" target="_blank">Fair Diffusion Explorer</a> and <a href="https://huggingface.co/spaces/AIML-TUDA/SEGA" target="_blank">SEGA Demo</a>.</p>
     </div>
-    <div class="section">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+    <div class="news-item">
+        <span class="date">2024</span>
+        <p>Our paper <em>&ldquo;M-ALERT: LLMs Lost in Translation&rdquo;</em> on cross-linguistic safety inconsistencies in large language models is now available on <a href="https://arxiv.org/abs/2412.15035" target="_blank">arXiv</a>.</p>
     </div>
+    <div class="news-item">
+        <span class="date">2024</span>
+        <p>Our paper <em>&ldquo;Multilingual Text-to-Image Generation Magnifies Gender Stereotypes&rdquo;</em> has been published. Read it on <a href="https://arxiv.org/abs/2401.16092" target="_blank">arXiv</a>.</p>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        My research interests are centered around artificial intelligence (AI) and how we can make AI systems socially acceptable. I focus on two key directions:
+    </p>
+    <p>
+        First, I work on <strong>incorporating the human in the loop</strong>. Inspiration comes from cognitive science, since the exploration and consideration of human behavior are inevitable and possibly the best motivation to improve current models. ChatGPT is just one example where human interaction boosted performance &mdash; demonstrating massive improvement through human interaction and the impact on current societies.
+    </p>
+    <p>
+        Second, I address the fact that <strong>current models are heavily biased</strong>. Trained on unfiltered web data, they risk reflecting or amplifying societal biases. I am interested in better understanding the learned representations in these models and in how to debias them in arbitrary directions, paving the way for fairer AI. To this end, I want to make use of human capabilities to incorporate knowledge outside of the rigid range of purely data-driven approaches.
+    </p>
+    <p style="margin-top: 16px; color: var(--text-light); font-size: 0.95em;">
+        <strong>Research Topics:</strong> Multimodal AI &middot; Generative AI &middot; AI Alignment &middot; AI Safety &middot; Fairness &amp; Bias
+    </p>
+</section>
+
+<!-- Timeline -->
+<section id="timeline">
+    <h2>Timeline</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <span class="year">2025 &ndash; present</span>
+            <div class="desc">Postdoctoral Researcher at <strong>Meta FAIR</strong>, Montreal, Canada.</div>
+        </div>
+        <div class="timeline-item">
+            <span class="year">2024 &ndash; 2025</span>
+            <div class="desc">Researcher and Co-lead at <strong>Lab1141</strong>, Aleph Alpha &times; TU Darmstadt, Germany.</div>
+        </div>
+        <div class="timeline-item">
+            <span class="year">2021 &ndash; 2025</span>
+            <div class="desc">Member of <strong>3AI</strong> at <a href="https://hessian.ai/" target="_blank">Hessian.AI</a>.</div>
+        </div>
+        <div class="timeline-item">
+            <span class="year">2021 &ndash; 2025</span>
+            <div class="desc">Ph.D. student at the <strong>Machine Learning Lab</strong>, CS Department, <a href="https://www.tu-darmstadt.de/" target="_blank">TU Darmstadt</a>, Germany.</div>
+        </div>
+        <div class="timeline-item">
+            <span class="year">2020</span>
+            <div class="desc">Erasmus+ at <a href="https://www.chalmers.se/" target="_blank">Chalmers University of Technology</a>, Gothenburg, Sweden.</div>
+        </div>
+        <div class="timeline-item">
+            <span class="year">2019 &ndash; 2021</span>
+            <div class="desc">M.Sc. in Computer Science (minor in Psychology), <a href="https://www.tu-darmstadt.de/" target="_blank">TU Darmstadt</a>, Germany.</div>
+        </div>
+        <div class="timeline-item">
+            <span class="year">2018 &ndash; 2021</span>
+            <div class="desc">M.Sc. <em>(with honors)</em> in Autonomous Systems, <a href="https://www.tu-darmstadt.de/" target="_blank">TU Darmstadt</a>, Germany.</div>
+        </div>
+        <div class="timeline-item">
+            <span class="year">2017</span>
+            <div class="desc">Research internship on intelligent autonomous driving systems at <strong>IAV</strong>, Germany.</div>
+        </div>
+        <div class="timeline-item">
+            <span class="year">2014 &ndash; 2017</span>
+            <div class="desc">B.Sc. in Electrical Engineering, <a href="https://www.tu-dortmund.de/" target="_blank">TU Dortmund</a>, Germany.</div>
+        </div>
+    </div>
+</section>
+
+<!-- Publications -->
+<section id="publications">
+    <h2>Selected Publications</h2>
+    <p style="margin-bottom: 20px; color: var(--text-light);">For a full list, see my <a href="https://scholar.google.com/citations?user=RfM9ud0AAAAJ" target="_blank">Google Scholar</a> profile (1,060+ citations).</p>
+
+    <div class="pub">
+        <div class="pub-title">LLMs Lost in Translation: M-ALERT Uncovers Cross-Linguistic Safety Inconsistencies</div>
+        <div class="pub-authors"><strong>Felix Friedrich</strong>, Simone Tedeschi, Patrick Schramowski, Manuel Brack, Roberto Navigli, Huu Nguyen, Bo Li</div>
+        <div class="pub-venue">arXiv, 2024</div>
+        <div class="pub-links">
+            <a href="https://arxiv.org/abs/2412.15035" target="_blank">Paper</a>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div class="pub-title">Multilingual Text-to-Image Generation Magnifies Gender Stereotypes and Prompt Engineering May Not Help You</div>
+        <div class="pub-authors"><strong>Felix Friedrich</strong>, Katharina H&auml;mmerl, Patrick Schramowski, Manuel Brack, Kristian Kersting</div>
+        <div class="pub-venue">arXiv, 2024</div>
+        <div class="pub-links">
+            <a href="https://arxiv.org/abs/2401.16092" target="_blank">Paper</a>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div class="pub-title">ALERT: A Comprehensive Benchmark for Assessing Large Language Models' Safety through Red Teaming</div>
+        <div class="pub-authors">Simone Tedeschi, <strong>Felix Friedrich</strong>, Patrick Schramowski, Kristian Kersting, Roberto Navigli, Huu Nguyen, Bo Li</div>
+        <div class="pub-venue">arXiv, 2024</div>
+        <div class="pub-links">
+            <a href="https://arxiv.org/abs/2404.08676" target="_blank">Paper</a>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div class="pub-title">Auditing and Instructing Text-to-Image Generation Models on Fairness</div>
+        <div class="pub-authors"><strong>Felix Friedrich</strong>, Manuel Brack, Lukas Struppek, Dominik Hintersdorf, Patrick Schramowski, Sasha Luccioni, Kristian Kersting</div>
+        <div class="pub-venue">AI and Ethics (Springer), 2024</div>
+        <div class="pub-links">
+            <a href="https://link.springer.com/article/10.1007/s43681-024-00531-5" target="_blank">Paper</a>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div class="pub-title">Fair Diffusion: Instructing Text-to-Image Generation Models on Fairness</div>
+        <div class="pub-authors"><strong>Felix Friedrich</strong>, Manuel Brack, Lukas Struppek, Dominik Hintersdorf, Patrick Schramowski, Sasha Luccioni, Kristian Kersting</div>
+        <div class="pub-venue">arXiv, 2023</div>
+        <div class="pub-links">
+            <a href="https://arxiv.org/abs/2302.10893" target="_blank">Paper</a>
+            <a href="https://huggingface.co/spaces/AIML-TUDA/FairDiffusion" target="_blank">Demo</a>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div class="pub-title">Safe Latent Diffusion: Mitigating Inappropriate Degeneration in Diffusion Models</div>
+        <div class="pub-authors">Patrick Schramowski, Manuel Brack, Björn Deiseroth, <strong>Felix Friedrich</strong>, Kristian Kersting</div>
+        <div class="pub-venue">CVPR, 2023</div>
+        <div class="pub-links">
+            <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Schramowski_Safe_Latent_Diffusion_Mitigating_Inappropriate_Degeneration_in_Diffusion_Models_CVPR_2023_paper.pdf" target="_blank">Paper</a>
+        </div>
+    </div>
+
+    <div class="pub">
+        <div class="pub-title">A Fair Encoding of Generative Models: A Typology of Bias in Vision and Language Research</div>
+        <div class="pub-authors"><strong>Felix Friedrich</strong>, Manuel Brack, Patrick Schramowski, Lukas Struppek, Dominik Hintersdorf, Kristian Kersting</div>
+        <div class="pub-venue">arXiv, 2022</div>
+        <div class="pub-links">
+            <a href="https://arxiv.org/abs/2203.03668" target="_blank">Paper</a>
+        </div>
+    </div>
+</section>
+
+<!-- Teaching -->
+<section id="teaching">
+    <h2>Teaching</h2>
+    <p style="margin-bottom: 14px;">Supervised courses at TU Darmstadt with <a href="https://ml-research.github.io/people/kkersting/" target="_blank">Prof. Dr. Kristian Kersting</a>:</p>
+    <table>
+        <thead>
+            <tr><th>Semester</th><th>Course</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>WS 2024</td><td>Probabilistic Graphical Models</td></tr>
+            <tr><td>WS 2023</td><td>Probabilistic Graphical Models</td></tr>
+            <tr><td>SS 2022</td><td>Data Mining and Machine Learning</td></tr>
+            <tr><td>WS 2021</td><td>Introduction to AI</td></tr>
+            <tr><td>SS 2021</td><td>Deep Learning: Architectures and Methods</td></tr>
+            <tr><td>SS 2020</td><td>Statistical Machine Learning</td></tr>
+        </tbody>
+    </table>
+</section>
+
+</main>
+
+<footer>
+    &copy; 2025 Felix Friedrich &middot; Hosted on <a href="https://github.com/felifri/felifri.github.io">GitHub Pages</a>
+</footer>
+
+<!-- Smooth scrolling & active nav -->
+<script>
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+
+    // Update active nav on scroll
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        let current = '';
+        sections.forEach(section => {
+            const top = section.offsetTop - 80;
+            if (pageYOffset >= top) current = section.getAttribute('id');
+        });
+        document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+        });
+    });
+</script>
+
 </body>
 </html>
